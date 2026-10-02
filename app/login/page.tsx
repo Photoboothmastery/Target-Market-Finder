@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { supabase } from "@/lib/supabase/client";
+import Logo from "@/components/Logo";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -31,24 +32,9 @@ export default function LoginPage() {
         textAlign: "center",
       }}
     >
-      <span
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "3rem",
-          height: "3rem",
-          borderRadius: "8px",
-          background: "var(--steel)",
-          color: "white",
-          fontWeight: 700,
-          fontSize: "1.1rem",
-          marginBottom: "1rem",
-        }}
-      >
-        TM
-      </span>
-      <h1 style={{ marginTop: 0 }}>Target Market Finder</h1>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <Logo size="lg" />
+          </div>
       <p className="muted">
         Log in with your email — we'll send you a link, no password needed.
       </p>

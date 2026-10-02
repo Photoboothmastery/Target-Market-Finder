@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+@font-face {
+  font-family: "Romelu Vomelu";
+  src: url("/fonts/RomeluVomelu-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Romelu Vomelu";
+  src: url("/fonts/RomeluVomelu-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --ink: #222e39;
   --steel: #51697a;
@@ -16,6 +32,8 @@
   --border: var(--rule);
   --accent: var(--steel);
   --bg: var(--cream);
+
+  --font-display: 'Romelu Vomelu', Georgia, serif;
 }
 
 * { box-sizing: border-box; }

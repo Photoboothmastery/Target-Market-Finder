@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
+import Logo from "@/components/Logo";
 
 export default function Nav() {
   const router = useRouter();
@@ -14,23 +15,9 @@ export default function Nav() {
 
   return (
     <nav>
-      <span
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "1.75rem",
-          height: "1.75rem",
-          borderRadius: "6px",
-          background: "var(--steel)",
-          color: "white",
-          fontWeight: 700,
-          fontSize: "0.8rem",
-        }}
-      >
-        TM
-      </span>
-      <strong>Target Market Finder</strong>
+      <Link href="/dashboard" style={{ textDecoration: "none" }}>
+        <Logo />
+      </Link>
       <Link href="/dashboard">Dashboard</Link>
       <Link href="/events/new">Log an event</Link>
       <Link href="/profile/wedding">Wedding profile</Link>
