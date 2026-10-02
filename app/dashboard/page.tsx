@@ -88,6 +88,9 @@ export default function DashboardPage() {
   return (
     <>
       <Nav />
+      <div style={{ background: "#536b77", padding: "1.75rem 1.5rem", textAlign: "center" }}>
+        <h1 style={{ margin: 0, color: "#f2f0ea" }}>Target Market Finder by Photo Booth Mastery</h1>
+      </div>
       <main>
         <h1>Your events</h1>
         <p className="muted">

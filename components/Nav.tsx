@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
-import Logo from "@/components/Logo";
 
 export default function Nav() {
   const router = useRouter();
@@ -15,8 +14,8 @@ export default function Nav() {
 
   return (
     <nav>
-      <Link href="/dashboard" style={{ textDecoration: "none" }}>
-        <Logo />
+      <Link href="/dashboard" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+        <img src="/pbm-icon.png" alt="Photo Booth Mastery" style={{ height: "2rem", width: "auto" }} />
       </Link>
       <Link href="/dashboard">Dashboard</Link>
       <Link href="/events/new">Log an event</Link>

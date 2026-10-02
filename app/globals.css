@@ -53,6 +53,7 @@ h1, h2, h3 {
   line-height: 1.2;
   letter-spacing: 0.01em;
   color: var(--ink);
+  text-transform: uppercase;
 }
 
 a { color: var(--steel); }
@@ -121,10 +122,15 @@ nav {
   border-bottom: 1px solid var(--rule);
   font-size: 0.9rem;
   align-items: center;
-  background: white;
+  background: #536b77;
 }
-nav a { color: var(--ink); text-decoration: none; }
-nav a:hover { color: var(--steel); }
+nav a { color: #f2f0ea; text-decoration: none; }
+nav a:hover { color: white; }
+nav button.secondary {
+  background: transparent;
+  color: #f2f0ea;
+  border-color: rgba(242, 240, 234, 0.4);
+}
 
 .badge-ok { color: var(--ok); }
 .badge-loss { color: var(--loss); }

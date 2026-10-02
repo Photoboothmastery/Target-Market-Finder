@@ -32,6 +32,7 @@ export default function Logo({ size = "md" }: { size?: "md" | "lg" }) {
             color: "var(--steel)",
             letterSpacing: "0.02em",
             whiteSpace: "nowrap",
+            textTransform: "uppercase",
           }}
         >
           by Photo Booth Mastery
