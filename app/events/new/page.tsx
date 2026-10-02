@@ -161,7 +161,7 @@ export default function NewEventPage() {
           <label>Notes (optional)</label>
           <textarea rows={3} value={notes} onChange={(e) => setNotes(e.target.value)} />
 
-          {error && <p style={{ color: "crimson" }}>{error}</p>}
+          {error && <p style={{ color: "var(--loss)" }}>{error}</p>}
 
           <button type="submit" disabled={saving}>
             {saving ? "Saving…" : "Save event"}

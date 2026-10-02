@@ -14,6 +14,22 @@ export default function Nav() {
 
   return (
     <nav>
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "1.75rem",
+          height: "1.75rem",
+          borderRadius: "6px",
+          background: "var(--steel)",
+          color: "white",
+          fontWeight: 700,
+          fontSize: "0.8rem",
+        }}
+      >
+        TM
+      </span>
       <strong>Target Market Finder</strong>
       <Link href="/dashboard">Dashboard</Link>
       <Link href="/events/new">Log an event</Link>

@@ -20,19 +20,46 @@ export default function LoginPage() {
   }
 
   return (
-    <main>
-      <h1>Target Market Finder</h1>
+    <main
+      style={{
+        maxWidth: "28rem",
+        margin: "4rem auto",
+        background: "white",
+        border: "1px solid var(--rule)",
+        borderRadius: "6px",
+        padding: "2rem",
+        textAlign: "center",
+      }}
+    >
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "3rem",
+          height: "3rem",
+          borderRadius: "8px",
+          background: "var(--steel)",
+          color: "white",
+          fontWeight: 700,
+          fontSize: "1.1rem",
+          marginBottom: "1rem",
+        }}
+      >
+        TM
+      </span>
+      <h1 style={{ marginTop: 0 }}>Target Market Finder</h1>
       <p className="muted">
         Log in with your email — we'll send you a link, no password needed.
       </p>
 
       {sent ? (
-        <div className="card">
+        <div className="card" style={{ textAlign: "left" }}>
           <strong>Check your email.</strong>
           <p className="muted">We sent a login link to {email}.</p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={{ textAlign: "left" }}>
           <label htmlFor="email">Email</label>
           <input
             id="email"
@@ -42,8 +69,10 @@ export default function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
           />
-          {error && <p style={{ color: "crimson" }}>{error}</p>}
-          <button type="submit">Send login link</button>
+          {error && <p style={{ color: "var(--loss)" }}>{error}</p>}
+          <button type="submit" style={{ width: "100%" }}>
+            Send login link
+          </button>
         </form>
       )}
     </main>
