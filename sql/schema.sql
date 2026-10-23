@@ -45,3 +45,21 @@ create policy "Users can manage their own profiles"
   for all
   using (auth.uid() = user_id)
   with check (auth.uid() = user_id);
+
+-- Mirrors the `memberships` table pattern used by the Pricing Blueprint App.
+-- Populated by a scheduled sync job (see api/cron/sync-memberships), not by
+-- the app itself. Keyed on email since that's what we have at login time,
+-- before we know if this is a returning user.
+create table if not exists memberships (
+  id uuid primary key default gen_random_uuid(),
+  email text not null unique,
+  status text not null check (status in ('active', 'inactive')),
+  offer_id text,
+  synced_at timestamptz default now()
+);
+
+-- No RLS policy here on purpose: this table is only ever read/written by
+-- the service role (server-side), never directly by a logged-in user's
+-- browser session.
+alter table memberships enable row level security;
+

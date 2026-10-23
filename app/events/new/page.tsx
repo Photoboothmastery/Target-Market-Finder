@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
+import MembershipGate from "@/components/MembershipGate";
 import Nav from "@/components/Nav";
 import {
   WEDDING_TIERS,
@@ -13,6 +14,14 @@ import {
 } from "@/lib/taxonomy";
 
 export default function NewEventPage() {
+  return (
+    <MembershipGate>
+      <NewEventForm />
+    </MembershipGate>
+  );
+}
+
+function NewEventForm() {
   const router = useRouter();
   const [segment, setSegment] = useState<"wedding" | "corporate">("wedding");
   const [category, setCategory] = useState("");

@@ -1,15 +1,23 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
+import { authFetch } from "@/lib/authFetch";
 
 export default function Nav() {
   const router = useRouter();
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    authFetch("/api/admin/me").then((res) => setIsAdmin(res.ok)).catch(() => setIsAdmin(false));
+  }, []);
 
   async function handleLogout() {
+    sessionStorage.removeItem("login_logged");
     await supabase.auth.signOut();
-    router.push("/login");
+    router.replace("/login");
   }
 
   return (
@@ -21,6 +29,7 @@ export default function Nav() {
       <Link href="/events/new">Log an event</Link>
       <Link href="/profile/wedding">Wedding profile</Link>
       <Link href="/profile/corporate">Corporate profile</Link>
+      {isAdmin && <Link href="/admin">Admin</Link>}
       <button
         className="secondary"
         style={{ marginTop: 0, marginLeft: "auto" }}

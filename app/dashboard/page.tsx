@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
+import MembershipGate from "@/components/MembershipGate";
 import Nav from "@/components/Nav";
 
 type EventRow = {
@@ -52,6 +53,14 @@ function summarize(events: EventRow[]): CategorySummary[] {
 }
 
 export default function DashboardPage() {
+  return (
+    <MembershipGate>
+      <DashboardContent />
+    </MembershipGate>
+  );
+}
+
+function DashboardContent() {
   const router = useRouter();
   const [events, setEvents] = useState<EventRow[] | null>(null);
   const [loading, setLoading] = useState(true);

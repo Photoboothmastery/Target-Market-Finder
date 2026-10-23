@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase/client";
+import MembershipGate from "@/components/MembershipGate";
 import Nav from "@/components/Nav";
 
 type EventRow = {
@@ -60,6 +61,14 @@ function buildDraft(segment: "wedding" | "corporate", events: EventRow[]) {
 }
 
 export default function ProfilePage({ params }: { params: { segment: string } }) {
+  return (
+    <MembershipGate>
+      <ProfileContent params={params} />
+    </MembershipGate>
+  );
+}
+
+function ProfileContent({ params }: { params: { segment: string } }) {
   const router = useRouter();
   const segment = params.segment === "corporate" ? "corporate" : "wedding";
 
