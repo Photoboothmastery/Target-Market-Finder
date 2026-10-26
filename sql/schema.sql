@@ -63,3 +63,12 @@ create table if not exists memberships (
 -- browser session.
 alter table memberships enable row level security;
 
+
+-- Data API access. Supabase stopped auto-granting this for new tables in
+-- "public" on Oct 30, 2026, so a fresh setup needs these explicitly.
+-- No anon (logged-out) access anywhere. Row-level security above still
+-- limits each student to their own rows.
+grant select, insert, update, delete on public.events to authenticated, service_role;
+grant select, insert, update, delete on public.target_market_profiles to authenticated, service_role;
+-- Server-only table: never read by a student's browser.
+grant select, insert, update, delete on public.memberships to service_role;

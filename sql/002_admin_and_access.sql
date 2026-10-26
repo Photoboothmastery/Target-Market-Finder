@@ -59,3 +59,7 @@ create policy "Active members manage their own profiles"
   on target_market_profiles for all
   using (auth.uid() = user_id and is_active_member())
   with check (auth.uid() = user_id and is_active_member());
+
+-- Data API access for the new tables (server-only; see schema.sql note).
+grant select, insert, update, delete on public.access_blocks to service_role;
+grant select, insert, update, delete on public.login_events to service_role;
