@@ -11,6 +11,8 @@ const ALLOWED_OFFER_IDS = [
   "2151332113", // Photo Booth Mastery - Thrive - Founding Members Rate
   "2150660407", // SCALE Monthly Payment Plan
   "2151009853", // SCALE - Pay in Full
+  "2150680965", // SCALE (ANNE) - custom deal
+  "2150957337", // SCALE (Marissa) - custom deal
 ];
 
 export async function GET(req: NextRequest) {
